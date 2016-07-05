@@ -58,8 +58,12 @@ BOOTSTRAP_FLUID = True
 DISQUS_SITENAME = "yucheng"
 DISPLAY_BREADCRUMB = True
 
-#BANNER = '/path/to/banner.png'
-#BANNER_SUBTITLE = 'This is my subtitle'
+
+
+# static paths will be copied under the same name
+STATIC_PATHS = ["images"]
+BANNER = 'images/WP_20130331_11_33_12_Panorama.jpg'
+BANNER_SUBTITLE = 'Ever tried. Ever failed. No matter. Try Again. Fail again. Fail better.'
 #BANNER_ALL_PAGES = True
 
 
