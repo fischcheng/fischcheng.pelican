@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="utf-8" />
+        <title>yucheng - markdown</title>
+        <link rel="stylesheet" href="https://fischcheng.github.io/theme/css/main.css" />
+        <link href="https://fischcheng.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="yucheng Atom Feed" />
+
+        <!--[if IE]>
+            <script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+</head>
+
+<body id="index" class="home">
+<a href="https://github.com/fischcheng">
+<img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub" />
+</a>
+        <header id="banner" class="body">
+                <h1><a href="https://fischcheng.github.io/">yucheng </a></h1>
+                <nav><ul>
+                    <li><a href="https://fischcheng.github.io/pages/about.html">About</a></li>
+                    <li><a href="https://fischcheng.github.io/pages/contact.html">Contact</a></li>
+                    <li><a href="https://fischcheng.github.io/pages/research.html">Research</a></li>
+                    <li><a href="https://fischcheng.github.io/pages/work.html">Work</a></li>
+                    <li><a href="https://fischcheng.github.io/category/notes.html">Notes</a></li>
+                    <li><a href="https://fischcheng.github.io/category/blog.html">Blog</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+
+            <aside id="featured" class="body">
+                <article>
+                    <h1 class="entry-title"><a href="https://fischcheng.github.io/building-a-statistic-blog-with-pelican.html">Building a statistic blog with Pelican</a></h1>
+<footer class="post-info">
+        <abbr class="published" title="2014-06-10T12:05:00-04:00">
+                Published: Tue 10 June 2014
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="https://fischcheng.github.io/author/yu-cheng.html">Yu Cheng</a>
+        </address>
+<p>In <a href="https://fischcheng.github.io/category/notes.html">Notes</a>.</p>
+<p>tags: <a href="https://fischcheng.github.io/tag/pelican.html">pelican</a> <a href="https://fischcheng.github.io/tag/python.html">python</a> <a href="https://fischcheng.github.io/tag/markdown.html">markdown</a> <a href="https://fischcheng.github.io/tag/bootstrap.html">bootstrap</a> </p>
+</footer><!-- /.post-info --><h4>Once upon a time...</h4>
+<p>I spent a summer using Microsoft Frontpage to build a website, hosted by my highschool's server. Then I also had my first experience with PHP, javascript, html, css, cgi (common gateway interface, I haven't seen such things for a while!) However, some popular free-webpage services just kept popping out the years after, as "blog" became a everyday word. All of a sudden, a vibrant and powerful "blog", usually implemented with guestbook and albums is just few clicks away. Thus, I stop writing my own webpages. That was ten years ago. Years later, even MS Frontpage is discontinued. End of last summer, every students in RSMAS got an mail about annual progress report, and building your personal page is listed as a requirment. I first cheated by adding a new blog using wordpress, refusing to revisit my old friends, being afraid of spending too much time on such distractions. However, these distractions just won't dispear even though I tried hard to ignore... Therefore, after the tiring semster with TA and seminar talk, I came back to revisit some other interesting stuffs I've had no time to spend on for the past few months.</p>
+<h4>Pelican: I love this bird!!</h4>
+<p>I've heard about Django quite often, so it was my first try. Lacking of PHP knowledge, and a personal site needs not to have some log-in or user-management functions, I decided to build a static blog. By accident, I noticed that lots of technical blogs are hosted by Github, and powered by Jekyll, Octopress or Pelican. The reason that I chose Pelican, is simply because it's python/jinja2 based. And I happened to find some very good references:       </p>
+<ul>
+<li><a href="http://jakevdp.github.io/blog/2013/05/07/migrating-from-octopress-to-pelican/">http://jakevdp.github.io/blog/2013/05/07/migrating-from-octopress-to-pelican/</a></li>
+<li><a href="http://blog.xlarrakoetxea.org/posts/2012/10/creating-a-blog-with-pelican/">http://blog.xlarrakoetxea.org/posts/2012/10/creating-a-blog-with-pelican/</a></li>
+<li><a href="https://github.com/getpelican">https://github.com/getpelican</a>
+<p align="center">
+<img width="400" src="http://www.allaboutbirds.org/guide/PHOTO/LARGE/brown_pelican_5.jpg" height="500">
+</p></li>
+</ul>
+<h4>Overview</h4>
+<p>Pelican is a static site engine powered by python, using templates based on Jinja2. It supports both reStructuredText and Markdown, as well as asciiDoc and html, which makes writing new posts extremely easy. The center of a pelican-powered site is the <em>configuration.py</em> file, which controls the basic settings of your site, including side bar, navigation bar options, disqus-comments, tags, categories, twitter supports, and PATH. All the original files (including .md, .rst files) are stored in /contents, and all the html generated by Pelican go to /output folder. Simply upload the /output folder to your web-host, and T'ADA, your website is on. For details of installation and deployment, pleace check official Pelican documentation.       </p>
+<ul>
+<li><a href="http://docs.getpelican.com/en/3.3.0/">http://docs.getpelican.com/en/3.3.0/</a></li>
+</ul>
+<h4>Themes</h4>
+<p>One of the reasons that I chose Pelican is the active community on Github. As mentioned above, pelican templates are generated by Jinja2, which is a template engine powered by Python. A set of themes including templates of different pages and stylesheets. There are many high-quality themes available on github, which can be easily downloaded using following command:        </p>
+<div class="highlight"><pre><span></span>git clone https://github.com/getpelican/pelican-themes
+</pre></div>
+
+
+<p>This blog is powered by pelican-bootstraps3 theme; few other themes I would also like to try are Pelican-pure, Mockingbird and Notmyidea. Additional stylesheet can be easily integrated by changing the setting in <em>configuration.py</em>. To switch between different themes, just modify this line in your <em>configuration.py</em>.         </p>
+<div class="highlight"><pre><span></span><span class="n">THEME</span> <span class="o">=</span> <span class="s2">&quot;pelican-bootstrap3&quot;</span>  <span class="c1"># or whatever themes you like</span>
+</pre></div>
+
+
+<h4>Customize</h4>
+<p>This is a more tricky part, due to my limited knowledge of CSS and Jinja2. So far I've only managed to change the background color, font size, line-height and link-hover style of my header. Even though the syntax of CSS is very straightforward, lacking of nested structure, it is very difficult to read the CCS stylesheet by someone else: one must figure out the class/ID names of each elements in the html files, and locate corresponding tags in the minified CSS file. I've found a Sublime-Text package to unminify the CSS, yet still find it difficult to change even a single property. Currently, I am attempting to use SASS/COMPASS to rewrite the stylesheet.</p>
+<h4>Plugins</h4>
+<p>One of greatest feature of Pelican is to include modular plugins into your static site. Same as Pelican-themes, these plugins can be downloaded easily from github.</p>
+<div class="highlight"><pre><span></span>git clone https://github.com/getpelican/pelican-plugins.git
+</pre></div>
+
+
+<p>Curretnly, I am using the Liquid-tags plugin by <a href="mailto:jakevdp@cs.washington.edu">Jake Vanderplas</a> to enable Youtube video, iPython notebook, code-block and image insertion in my blog posts, as well as the Math-rendering. Other plugins such as Gravatar and internal-links are very easily to be implemented, in fact, just two lines in the <em>configuration.py</em>. The idea of plugins, are similar to the idea of importing libraries in the beginning of every Python scripts.     </p>
+<div class="highlight"><pre><span></span><span class="c1"># Plugins</span>
+<span class="n">PLUGIN_PATH</span> <span class="o">=</span> <span class="s1">&#39;/Users/yucheng/Desktop/Other/MyPage/pelican-plugin&#39;</span>
+<span class="n">PLUGINS</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;liquid_tags.img&#39;</span><span class="p">,</span> <span class="s1">&#39;liquid_tags.video&#39;</span><span class="p">,</span>
+           <span class="s1">&#39;liquid_tags.youtube&#39;</span><span class="p">,</span> <span class="s1">&#39;liquid_tags.vimeo&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;liquid_tags.include_code&#39;</span><span class="p">,</span> <span class="s1">&#39;liquid_tags.notebook&#39;</span><span class="p">,</span><span class="s1">&#39;render_math&#39;</span><span class="p">]</span>
+</pre></div>
+
+
+<h4>Summary</h4>
+<p>Pelican is a really powerful static-site generator, using Python. All options you may play with are in the <em>configuration.py</em> and the <em>syltesheet.css</em>. The official documentation of Pelican is rather complete, not to mention the active developer-base. If you are a Python lover, it won't take you too long to setup a really polished and somehow-dynamic static site. So, look no further, among numerous static-site engines, Pelican is definitely one of the best.</p><p>There are <a href="https://fischcheng.github.io/building-a-statistic-blog-with-pelican.html#disqus_thread">comments</a>.</p>                </article>
+            </aside><!-- /#featured -->
+                <section id="content" class="body">
+                    <h1>Other articles</h1>
+                    <hr />
+                    <ol id="posts-list" class="hfeed">
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="https://fischcheng.github.io/last-try-of-the-day.html" rel="bookmark"
+                           title="Permalink to Last try of the day">Last try of the day</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2014-06-04T23:40:00-04:00">
+                Published: Wed 04 June 2014
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="https://fischcheng.github.io/author/yu-cheng.html">Yu Cheng</a>
+        </address>
+<p>In <a href="https://fischcheng.github.io/category/blog.html">Blog</a>.</p>
+<p>tags: <a href="https://fischcheng.github.io/tag/restructuredtext.html">reStructuredText</a> <a href="https://fischcheng.github.io/tag/css.html">css</a> <a href="https://fischcheng.github.io/tag/pelican.html">pelican</a> <a href="https://fischcheng.github.io/tag/markdown.html">markdown</a> </p>
+</footer><!-- /.post-info -->                <p>A long day with Pelican and reStructuredText, to achieve my goals of embedding iPython notebook and Youtube videos, I feel like I'd better try Markdown, which I am more familiar with, below are some results:</p>
+<h4>Image</h4>
+<p><img width="500" alt="Equatorial Waves" title="Equatorial Waves" src="http://ycheng1.files.wordpress.com/2013/10/trac_anim.gif" height="400"></p>
+<h4>Youtube video</h4>
+<p><div class="videobox">
+                <iframe width="400" height="300"
+                    src='https://www.youtube.com/embed ...</div></p>
+                <a class="readmore" href="https://fischcheng.github.io/last-try-of-the-day.html">read more</a>
+<p>There are <a href="https://fischcheng.github.io/last-try-of-the-day.html#disqus_thread">comments</a>.</p>                </div><!-- /.entry-content -->
+            </article></li>
+                </ol><!-- /#posts-list -->
+                </section><!-- /#content -->
+        <section id="extras" class="body">
+                <div class="blogroll">
+                        <h2>blogroll</h2>
+                        <ul>
+                            <li><a href="http://www.rsmas.miami.edu">RSMAS</a></li>
+                            <li><a href="http://julialang.org">Julia</a></li>
+                            <li><a href="https://pypi.python.org/pypi">PyPI</a></li>
+                        </ul>
+                </div><!-- /.blogroll -->
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+                            <li><a href="https://fischcheng.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate">atom feed</a></li>
+
+                            <li><a href="http://twitter.com/fischcheng">twitter</a></li>
+                            <li><a href="https://www.facebook.com/fischcheng">facebook</a></li>
+                            <li><a href="https://github.com/fischcheng">github</a></li>
+                        </ul>
+                </div><!-- /.social -->
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+<script type="text/javascript">
+    var disqus_shortname = 'yucheng';
+    (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = 'https://' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+</script>
+</body>
+</html>
