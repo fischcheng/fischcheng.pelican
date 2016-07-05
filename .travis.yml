@@ -7,6 +7,7 @@ branches:
 install:
 - pip install -r requirements.txt
 - git clone https://github.com/getpelican/pelican-plugins
+- pip install pelican-youtube
 script:
 - make travis
 env:

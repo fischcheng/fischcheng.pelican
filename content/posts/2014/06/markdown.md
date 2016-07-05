@@ -11,9 +11,6 @@ A long day with Pelican and reStructuredText, to achieve my goals of embedding i
 
 {% img http://ycheng1.files.wordpress.com/2013/10/trac_anim.gif 500 400 Equatorial Waves%}
 
-####Youtube video
-
-{% youtube ZJFkCK_Ex2U 400 300 %}
 
 ####Code
 
