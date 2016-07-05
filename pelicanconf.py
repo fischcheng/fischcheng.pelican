@@ -15,7 +15,6 @@ CATEGORY_FEED_RSS = 'feeds/%s.rss.xml'
 
 # Copy from old setting file
 GITHUB_URL = 'https://github.com/fischcheng'
-DISQUS_SITENAME = "yucheng"
 EMAIL = "ycheng@rsmas.miami.edu"
 PDF_GENERATOR = False
 REVERSE_CATEGORY_ORDER = True
@@ -47,6 +46,22 @@ PLUGIN_PATHS = ['pelican-plugins']
 PLUGINS = ['liquid_tags.img', 'liquid_tags.video',
            'liquid_tags.youtube', 'liquid_tags.vimeo',
            'liquid_tags.include_code', 'liquid_tags.notebook','render_math']
+
+# Theme:
+THEME = "/Users/yucheng/Documents/MyPage/UserBlog/Blog/pelican-themes/pelican-bootstrap3"
+BOOTSTRAP_THEME='flatly'
+PYGMENTS_STYLE ='monokai'  #This is for inline highlighting syntaxes
+
+SHOW_ARTICLE_AUTHOR = True
+SHOW_DATE_MODIFIED = True
+BOOTSTRAP_FLUID = True
+DISQUS_SITENAME = "yucheng"
+DISPLAY_BREADCRUMB = True
+
+#BANNER = '/path/to/banner.png'
+#BANNER_SUBTITLE = 'This is my subtitle'
+#BANNER_ALL_PAGES = True
+
 
 
 # Uncomment following line if you want document-relative URLs when developing

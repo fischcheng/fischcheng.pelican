@@ -1,173 +1,345 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
 <head>
-        <meta charset="utf-8" />
-        <title>yucheng - Notes</title>
-        <link rel="stylesheet" href="https://fischcheng.github.io/theme/css/main.css" />
-        <link href="https://fischcheng.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="yucheng Atom Feed" />
+    <title>Notes - yucheng</title>
+    <!-- Using the latest rendering mode for IE -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <!--[if IE]>
-            <script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-        <![endif]-->
+
+
+
+<style type="text/css">
+
+/*some stuff for output/input prompts*/
+div.cell{border:1px solid transparent;display:-webkit-box;-webkit-box-orient:vertical;-webkit-box-align:stretch;display:-moz-box;-moz-box-orient:vertical;-moz-box-align:stretch;display:box;box-orient:vertical;box-align:stretch;display:flex;flex-direction:column;align-items:stretch}div.cell.selected{border-radius:4px;border:thin #ababab solid}
+div.cell.edit_mode{border-radius:4px;border:thin #008000 solid}
+div.cell{width:100%;padding:5px 5px 5px 0;margin:0;outline:none}
+div.prompt{min-width:11ex;padding:.4em;margin:0;font-family:monospace;text-align:right;line-height:1.21429em}
+@media (max-width:480px){div.prompt{text-align:left}}div.inner_cell{display:-webkit-box;-webkit-box-orient:vertical;-webkit-box-align:stretch;display:-moz-box;-moz-box-orient:vertical;-moz-box-align:stretch;display:box;box-orient:vertical;box-align:stretch;display:flex;flex-direction:column;align-items:stretch;-webkit-box-flex:1;-moz-box-flex:1;box-flex:1;flex:1}
+div.input_area{border:1px solid #cfcfcf;border-radius:4px;background:#f7f7f7;line-height:1.21429em}
+div.prompt:empty{padding-top:0;padding-bottom:0}
+div.input{page-break-inside:avoid;display:-webkit-box;-webkit-box-orient:horizontal;-webkit-box-align:stretch;display:-moz-box;-moz-box-orient:horizontal;-moz-box-align:stretch;display:box;box-orient:horizontal;box-align:stretch;}
+div.inner_cell{width:90%;}
+div.input_area{border:1px solid #cfcfcf;border-radius:4px;background:#f7f7f7;}
+div.input_prompt{color:navy;border-top:1px solid transparent;}
+div.output_wrapper{margin-top:5px;position:relative;display:-webkit-box;-webkit-box-orient:vertical;-webkit-box-align:stretch;display:-moz-box;-moz-box-orient:vertical;-moz-box-align:stretch;display:box;box-orient:vertical;box-align:stretch;width:100%;}
+div.output_scroll{height:24em;width:100%;overflow:auto;border-radius:4px;-webkit-box-shadow:inset 0 2px 8px rgba(0, 0, 0, 0.8);-moz-box-shadow:inset 0 2px 8px rgba(0, 0, 0, 0.8);box-shadow:inset 0 2px 8px rgba(0, 0, 0, 0.8);}
+div.output_collapsed{margin:0px;padding:0px;display:-webkit-box;-webkit-box-orient:vertical;-webkit-box-align:stretch;display:-moz-box;-moz-box-orient:vertical;-moz-box-align:stretch;display:box;box-orient:vertical;box-align:stretch;width:100%;}
+div.out_prompt_overlay{height:100%;padding:0px 0.4em;position:absolute;border-radius:4px;}
+div.out_prompt_overlay:hover{-webkit-box-shadow:inset 0 0 1px #000000;-moz-box-shadow:inset 0 0 1px #000000;box-shadow:inset 0 0 1px #000000;background:rgba(240, 240, 240, 0.5);}
+div.output_prompt{color:darkred;}
+
+a.anchor-link:link{text-decoration:none;padding:0px 20px;visibility:hidden;}
+h1:hover .anchor-link,h2:hover .anchor-link,h3:hover .anchor-link,h4:hover .anchor-link,h5:hover .anchor-link,h6:hover .anchor-link{visibility:visible;}
+/* end stuff for output/input prompts*/
+
+
+.highlight-ipynb .hll { background-color: #ffffcc }
+.highlight-ipynb  { background: #f8f8f8; }
+.highlight-ipynb .c { color: #408080; font-style: italic } /* Comment */
+.highlight-ipynb .err { border: 1px solid #FF0000 } /* Error */
+.highlight-ipynb .k { color: #008000; font-weight: bold } /* Keyword */
+.highlight-ipynb .o { color: #666666 } /* Operator */
+.highlight-ipynb .cm { color: #408080; font-style: italic } /* Comment.Multiline */
+.highlight-ipynb .cp { color: #BC7A00 } /* Comment.Preproc */
+.highlight-ipynb .c1 { color: #408080; font-style: italic } /* Comment.Single */
+.highlight-ipynb .cs { color: #408080; font-style: italic } /* Comment.Special */
+.highlight-ipynb .gd { color: #A00000 } /* Generic.Deleted */
+.highlight-ipynb .ge { font-style: italic } /* Generic.Emph */
+.highlight-ipynb .gr { color: #FF0000 } /* Generic.Error */
+.highlight-ipynb .gh { color: #000080; font-weight: bold } /* Generic.Heading */
+.highlight-ipynb .gi { color: #00A000 } /* Generic.Inserted */
+.highlight-ipynb .go { color: #888888 } /* Generic.Output */
+.highlight-ipynb .gp { color: #000080; font-weight: bold } /* Generic.Prompt */
+.highlight-ipynb .gs { font-weight: bold } /* Generic.Strong */
+.highlight-ipynb .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+.highlight-ipynb .gt { color: #0044DD } /* Generic.Traceback */
+.highlight-ipynb .kc { color: #008000; font-weight: bold } /* Keyword.Constant */
+.highlight-ipynb .kd { color: #008000; font-weight: bold } /* Keyword.Declaration */
+.highlight-ipynb .kn { color: #008000; font-weight: bold } /* Keyword.Namespace */
+.highlight-ipynb .kp { color: #008000 } /* Keyword.Pseudo */
+.highlight-ipynb .kr { color: #008000; font-weight: bold } /* Keyword.Reserved */
+.highlight-ipynb .kt { color: #B00040 } /* Keyword.Type */
+.highlight-ipynb .m { color: #666666 } /* Literal.Number */
+.highlight-ipynb .s { color: #BA2121 } /* Literal.String */
+.highlight-ipynb .na { color: #7D9029 } /* Name.Attribute */
+.highlight-ipynb .nb { color: #008000 } /* Name.Builtin */
+.highlight-ipynb .nc { color: #0000FF; font-weight: bold } /* Name.Class */
+.highlight-ipynb .no { color: #880000 } /* Name.Constant */
+.highlight-ipynb .nd { color: #AA22FF } /* Name.Decorator */
+.highlight-ipynb .ni { color: #999999; font-weight: bold } /* Name.Entity */
+.highlight-ipynb .ne { color: #D2413A; font-weight: bold } /* Name.Exception */
+.highlight-ipynb .nf { color: #0000FF } /* Name.Function */
+.highlight-ipynb .nl { color: #A0A000 } /* Name.Label */
+.highlight-ipynb .nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
+.highlight-ipynb .nt { color: #008000; font-weight: bold } /* Name.Tag */
+.highlight-ipynb .nv { color: #19177C } /* Name.Variable */
+.highlight-ipynb .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
+.highlight-ipynb .w { color: #bbbbbb } /* Text.Whitespace */
+.highlight-ipynb .mf { color: #666666 } /* Literal.Number.Float */
+.highlight-ipynb .mh { color: #666666 } /* Literal.Number.Hex */
+.highlight-ipynb .mi { color: #666666 } /* Literal.Number.Integer */
+.highlight-ipynb .mo { color: #666666 } /* Literal.Number.Oct */
+.highlight-ipynb .sb { color: #BA2121 } /* Literal.String.Backtick */
+.highlight-ipynb .sc { color: #BA2121 } /* Literal.String.Char */
+.highlight-ipynb .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
+.highlight-ipynb .s2 { color: #BA2121 } /* Literal.String.Double */
+.highlight-ipynb .se { color: #BB6622; font-weight: bold } /* Literal.String.Escape */
+.highlight-ipynb .sh { color: #BA2121 } /* Literal.String.Heredoc */
+.highlight-ipynb .si { color: #BB6688; font-weight: bold } /* Literal.String.Interpol */
+.highlight-ipynb .sx { color: #008000 } /* Literal.String.Other */
+.highlight-ipynb .sr { color: #BB6688 } /* Literal.String.Regex */
+.highlight-ipynb .s1 { color: #BA2121 } /* Literal.String.Single */
+.highlight-ipynb .ss { color: #19177C } /* Literal.String.Symbol */
+.highlight-ipynb .bp { color: #008000 } /* Name.Builtin.Pseudo */
+.highlight-ipynb .vc { color: #19177C } /* Name.Variable.Class */
+.highlight-ipynb .vg { color: #19177C } /* Name.Variable.Global */
+.highlight-ipynb .vi { color: #19177C } /* Name.Variable.Instance */
+.highlight-ipynb .il { color: #666666 } /* Literal.Number.Integer.Long */
+</style>
+
+<style type="text/css">
+/* Overrides of notebook CSS for static HTML export */
+div.entry-content {
+  overflow: visible;
+  padding: 8px;
+}
+.input_area {
+  padding: 0.2em;
+}
+
+a.heading-anchor {
+ white-space: normal;
+}
+
+.rendered_html
+code {
+ font-size: .8em;
+}
+
+pre.ipynb {
+  color: black;
+  background: #f7f7f7;
+  border: none;
+  box-shadow: none;
+  margin-bottom: 0;
+  padding: 0;
+  margin: 0px;
+  font-size: 13px;
+}
+
+/* remove the prompt div from text cells */
+div.text_cell .prompt {
+    display: none;
+}
+
+/* remove horizontal padding from text cells, */
+/* so it aligns with outer body text */
+div.text_cell_render {
+    padding: 0.5em 0em;
+}
+
+img.anim_icon{padding:0; border:0; vertical-align:middle; -webkit-box-shadow:none; -box-shadow:none}
+</style>
+
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>
+<script type="text/javascript">
+init_mathjax = function() {
+    if (window.MathJax) {
+        // MathJax loaded
+        MathJax.Hub.Config({
+            tex2jax: {
+                inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+                displayMath: [ ['$$','$$'], ["\\[","\\]"] ]
+            },
+            displayAlign: 'left', // Change this to 'center' to center equations.
+            "HTML-CSS": {
+                styles: {'.MathJax_Display': {"margin": 0}}
+            }
+        });
+        MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
+    }
+}
+init_mathjax();
+</script>
+
+
+    <meta name="author" content="Yu Cheng" />
+    <meta name="keywords" content="Notes" />
+
+    <!-- Open Graph tags -->
+        <meta property="og:site_name" content="yucheng" />
+        <meta property="og:type" content="website"/>
+        <meta property="og:title" content="yucheng"/>
+        <meta property="og:url" content=".."/>
+        <meta property="og:description" content="yucheng"/>
+
+
+    <!-- Bootstrap -->
+        <link rel="stylesheet" href="../theme/css/bootstrap.flatly.min.css" type="text/css"/>
+    <link href="../theme/css/font-awesome.min.css" rel="stylesheet">
+
+    <link href="../theme/css/pygments/monokai.css" rel="stylesheet">
+    <link rel="stylesheet" href="../theme/css/style.css" type="text/css"/>
+
+
+
+
+
 </head>
+<body>
 
-<body id="index" class="home">
-<a href="https://github.com/fischcheng">
-<img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub" />
-</a>
-        <header id="banner" class="body">
-                <h1><a href="https://fischcheng.github.io/">yucheng </a></h1>
-                <nav><ul>
-                    <li><a href="https://fischcheng.github.io/pages/about.html">About</a></li>
-                    <li><a href="https://fischcheng.github.io/pages/contact.html">Contact</a></li>
-                    <li><a href="https://fischcheng.github.io/pages/research.html">Research</a></li>
-                    <li><a href="https://fischcheng.github.io/pages/work.html">Work</a></li>
-                    <li class="active"><a href="https://fischcheng.github.io/category/notes.html">Notes</a></li>
-                    <li><a href="https://fischcheng.github.io/category/blog.html">Blog</a></li>
-                </ul></nav>
-        </header><!-- /#banner -->
-
-            <aside id="featured" class="body">
-                <article>
-                    <h1 class="entry-title"><a href="https://fischcheng.github.io/agulhas-group-meeting-notes-july-10th.html">Agulhas Group meeting notes, July 10th</a></h1>
-<footer class="post-info">
-        <abbr class="published" title="2014-07-17T16:50:00-04:00">
-                Published: Thu 17 July 2014
-        </abbr>
-
-        <address class="vcard author">
-                By                         <a class="url fn" href="https://fischcheng.github.io/author/yu-cheng.html">Yu Cheng</a>
-        </address>
-<p>In <a href="https://fischcheng.github.io/category/notes.html">Notes</a>.</p>
-<p>tags: <a href="https://fischcheng.github.io/tag/agulhas-leakage.html">Agulhas leakage</a> <a href="https://fischcheng.github.io/tag/paleoclimate.html">paleoclimate</a> <a href="https://fischcheng.github.io/tag/sediments.html">sediments</a> </p>
-</footer><!-- /.post-info --><p><a href="http://www.clim-past.net/9/2631/2013/cp-9-2631-2013.html">P. Scussolini, E. van Sebille, J.V. Durgadoo: Paleo Agulhas rings enter the subtropical gyre during the penultimate deglaciation</a></p>
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+	<div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="../" class="navbar-brand">
+yucheng            </a>
+        </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                         <li><a href="../pages/about.html">
+                             About
+                          </a></li>
+                         <li><a href="../pages/contact.html">
+                             Contact
+                          </a></li>
+                         <li><a href="../pages/research.html">
+                             Research
+                          </a></li>
+                         <li><a href="../pages/work.html">
+                             Work
+                          </a></li>
+                        <li class="active">
+                            <a href="../category/notes.html">Notes</a>
+                        </li>
+                        <li >
+                            <a href="../category/blog.html">Blog</a>
+                        </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+</div> <!-- /.navbar -->
+<!-- Banner -->
+<!-- End Banner -->
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-9">
+            <article>
+                <h2><a href="../agulhas-group-meeting-notes-july-10th.html">Agulhas Group meeting notes, July 10th</a></h2>
+                <div class="summary"><p><a href="http://www.clim-past.net/9/2631/2013/cp-9-2631-2013.html">P. Scussolini, E. van Sebille, J.V. Durgadoo: Paleo Agulhas rings enter the subtropical gyre during the penultimate deglaciation</a></p>
 <p><strong>What scientific questions are the authors addressing?</strong></p>
-<p>The maximum strength of Agulhas leakage is identified during the glacial Termination II. The authors attempt to demonstrate the leakage, mostly in the form of rings, was effectively incorporated into the South Atlantic gyre, instead of retroflecting back to Southern or Indian ocean. </p>
-<p><strong>What methods do the authors use to address the questions?</strong></p>
-<ol>
-<li>They investigate the presence of paleo Agulhas rings from a sediment core on the central Walvis Ridge (64PE-174P13, 29.45.71'S, 2.24.10'E, 2914m deep). By selecting the appropriate species of plaktic foraminifer, they aim to target the salinity and temperature anomalies induced by the leakage at the depth of the thermocline. </li>
-<li>Analyzing INALT01 60yr model output to relate density perturbations at thermocline depth to the passage of individual rings over the core site. They concluded that the increasing variability of density at thermocline depth can be contributed to increasing passage of Agulhas rings.</li>
-<li>Using this relation as a basis of proxy of Agulhas leakage, they generate a time series of individual Globorotalia truncatulinoides O_18 variability to infer the variability of Agulhas leakage.</li>
-</ol>
-<p><strong>What are the authors' main conclusions?</strong></p>
-<ol>
-<li>
-<p>Strong relation between SSH and potential density at 452m variability is prominent in INALT01. Fig3 shows the temporal variability induced by individual Agulhas ring crossings the chosen core location. The largest density troughs can be attributed to passing Agulhas rings. Out of average 6 rings/year, the core site captures on average one to two full rings according to a Fourier analysis of SSH on the location.</p>
-</li>
-<li>
-<p>The time series shows high levels of pycnocline depth variability at the site, suggesting enhanced numbers of Agulhas rings moving into the South Atlantic Gyre around glacial Termination II.</p>
-</li>
-<li>
-<p>Their results closely follow the previous quantifications of Agulhas leakage from the east of the Cape Basin (other sediments cores.), showing that Indian Ocean waters enter the South Atlantic circulation.</p>
-</li>
-</ol>
-<p><strong>What are the implications of the results?</strong></p>
-<ol>
-<li>
-<p>By targeting the isotopes in appropriate species, scientists can not only study certain era of sediments cores, but also specific levels of the ocean. </p>
-</li>
-<li>
-<p>This result is a crucial support for the view of a prominent role of the Agulhas leakage in the shift from a glacial to an interglacial mode of the Atlantic circulation.</p>
-</li>
-<li>
-<p>Even though the increased leakage during the glacial termination did make it into subtropical gyre, the corresponding salt and heat were not neccesarily advected across the equator. However, modeling evidence show that the heat and salt from the Leakage do not have to reach the North Atlantic to impact the AMOC.</p>
-</li>
-</ol>
-<p><strong>Why did you choose this paper?</strong>
-Back to work on leakage, digging something more that supporting the claim that Agulhas leakage has impact on Atlantic circulation.</p>
-<p><strong>Who read this paper?</strong>
-Yu Cheng</p><p>There are <a href="https://fischcheng.github.io/agulhas-group-meeting-notes-july-10th.html#disqus_thread">comments</a>.</p>                </article>
-            </aside><!-- /#featured -->
-                <section id="content" class="body">
-                    <h1>Other articles</h1>
-                    <hr />
-                    <ol id="posts-list" class="hfeed">
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="https://fischcheng.github.io/building-a-statistic-blog-with-pelican.html" rel="bookmark"
-                           title="Permalink to Building a statistic blog with Pelican">Building a statistic blog with Pelican</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2014-06-10T12:05:00-04:00">
-                Published: Tue 10 June 2014
-        </abbr>
-
-        <address class="vcard author">
-                By                         <a class="url fn" href="https://fischcheng.github.io/author/yu-cheng.html">Yu Cheng</a>
-        </address>
-<p>In <a href="https://fischcheng.github.io/category/notes.html">Notes</a>.</p>
-<p>tags: <a href="https://fischcheng.github.io/tag/pelican.html">pelican</a> <a href="https://fischcheng.github.io/tag/python.html">python</a> <a href="https://fischcheng.github.io/tag/markdown.html">markdown</a> <a href="https://fischcheng.github.io/tag/bootstrap.html">bootstrap</a> </p>
-</footer><!-- /.post-info -->                <h4>Once upon a time...</h4>
+<p>The maximum strength of Agulhas leakage is identified during the glacial Termination II. The authors attempt to demonstrate the leakage, mostly in the form ...</p>
+                    <a class="btn btn-default btn-xs" href="../agulhas-group-meeting-notes-july-10th.html">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
+                <h2><a href="../building-a-statistic-blog-with-pelican.html">Building a statistic blog with Pelican</a></h2>
+                <div class="summary"><h4>Once upon a time...</h4>
 <p>I spent a summer using Microsoft Frontpage to build a website, hosted by my highschool's server. Then I also had my first experience with PHP, javascript, html, css, cgi (common gateway interface, I haven't seen such things for a while!) However, some popular free-webpage ...</p>
-                <a class="readmore" href="https://fischcheng.github.io/building-a-statistic-blog-with-pelican.html">read more</a>
-<p>There are <a href="https://fischcheng.github.io/building-a-statistic-blog-with-pelican.html#disqus_thread">comments</a>.</p>                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="https://fischcheng.github.io/agulhas-group-meeting-notes.html" rel="bookmark"
-                           title="Permalink to Agulhas Group meeting notes">Agulhas Group meeting notes</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2014-06-05T16:07:00-04:00">
-                Published: Thu 05 June 2014
-        </abbr>
-
-        <address class="vcard author">
-                By                         <a class="url fn" href="https://fischcheng.github.io/author/yu-cheng.html">Yu Cheng</a>
-        </address>
-<p>In <a href="https://fischcheng.github.io/category/notes.html">Notes</a>.</p>
-<p>tags: <a href="https://fischcheng.github.io/tag/amoc.html">AMOC</a> <a href="https://fischcheng.github.io/tag/trend.html">trend</a> <a href="https://fischcheng.github.io/tag/cmip5.html">CMIP5</a> <a href="https://fischcheng.github.io/tag/climate-models.html">climate models</a> <a href="https://fischcheng.github.io/tag/mocha.html">MOCHA</a> </p>
-</footer><!-- /.post-info -->                <p><a href="http://onlinelibrary.wiley.com/doi/10.1002/2014GL059473/abstract">C. D. Roberts, L. Jackson andD. McNeall, 2014: Is the 2004–2012 reduction of the Atlantic meridional overturning circulation significant?</a></p>
+                    <a class="btn btn-default btn-xs" href="../building-a-statistic-blog-with-pelican.html">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
+                <h2><a href="../agulhas-group-meeting-notes.html">Agulhas Group meeting notes</a></h2>
+                <div class="summary"><p><a href="http://onlinelibrary.wiley.com/doi/10.1002/2014GL059473/abstract">C. D. Roberts, L. Jackson andD. McNeall, 2014: Is the 2004–2012 reduction of the Atlantic meridional overturning circulation significant?</a></p>
 <p><strong>What scientific questions are the authors addressing?</strong></p>
 <p>To test the observed (by MOCHA array) 8 year trend (2004-2012, -0.53Sv/yr) of AMOC is significant, in comparison to the 14 ...</p>
-                <a class="readmore" href="https://fischcheng.github.io/agulhas-group-meeting-notes.html">read more</a>
-<p>There are <a href="https://fischcheng.github.io/agulhas-group-meeting-notes.html#disqus_thread">comments</a>.</p>                </div><!-- /.entry-content -->
-            </article></li>
-                </ol><!-- /#posts-list -->
-                </section><!-- /#content -->
-        <section id="extras" class="body">
-                <div class="blogroll">
-                        <h2>blogroll</h2>
-                        <ul>
-                            <li><a href="http://www.rsmas.miami.edu">RSMAS</a></li>
-                            <li><a href="http://julialang.org">Julia</a></li>
-                            <li><a href="https://pypi.python.org/pypi">PyPI</a></li>
-                        </ul>
-                </div><!-- /.blogroll -->
-                <div class="social">
-                        <h2>social</h2>
-                        <ul>
-                            <li><a href="https://fischcheng.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate">atom feed</a></li>
+                    <a class="btn btn-default btn-xs" href="../agulhas-group-meeting-notes.html">more ...</a>
+                </div>
+            </article>
+            <hr/>
 
-                            <li><a href="http://twitter.com/fischcheng">twitter</a></li>
-                            <li><a href="https://www.facebook.com/fischcheng">facebook</a></li>
-                            <li><a href="https://github.com/fischcheng">github</a></li>
-                        </ul>
-                </div><!-- /.social -->
-        </section><!-- /#extras -->
+        </div>
+        <div class="col-sm-3" id="sidebar">
+            <aside>
 
-        <footer id="contentinfo" class="body">
-                <address id="about" class="vcard body">
-                Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
-                </address><!-- /#about -->
+<section class="well well-sm">
+    <ul class="list-group list-group-flush">
+            <li class="list-group-item"><h4><i class="fa fa-home fa-lg"></i><span class="icon-label">Social</span></h4>
+              <ul class="list-group" id="social">
+                <li class="list-group-item"><a href="http://twitter.com/fischcheng"><i class="fa fa-twitter-square fa-lg"></i> twitter</a></li>
+                <li class="list-group-item"><a href="https://www.facebook.com/fischcheng"><i class="fa fa-facebook-square fa-lg"></i> facebook</a></li>
+                <li class="list-group-item"><a href="https://github.com/fischcheng"><i class="fa fa-github-square fa-lg"></i> github</a></li>
+              </ul>
+            </li>
 
-                <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
-        </footer><!-- /#contentinfo -->
 
-<script type="text/javascript">
-    var disqus_shortname = 'yucheng';
-    (function () {
-        var s = document.createElement('script'); s.async = true;
-        s.type = 'text/javascript';
-        s.src = 'https://' + disqus_shortname + '.disqus.com/count.js';
-        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
-    }());
-</script>
+
+
+
+    <li class="list-group-item"><h4><i class="fa fa-external-link-square fa-lg"></i><span class="icon-label">Links</span></h4>
+      <ul class="list-group" id="links">
+        <li class="list-group-item">
+            <a href="http://www.rsmas.miami.edu" target="_blank">
+                RSMAS
+            </a>
+        </li>
+        <li class="list-group-item">
+            <a href="http://julialang.org" target="_blank">
+                Julia
+            </a>
+        </li>
+        <li class="list-group-item">
+            <a href="https://pypi.python.org/pypi" target="_blank">
+                PyPI
+            </a>
+        </li>
+      </ul>
+    </li>
+    </ul>
+</section>
+            </aside>
+        </div>
+    </div>
+</div>
+<footer>
+   <div class="container-fluid">
+      <hr>
+      <div class="row">
+         <div class="col-xs-10">&copy; 2014 Yu Cheng
+            &middot; Powered by <a href="https://github.com/getpelican/pelican-themes/tree/master/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
+            <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
+            <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>         </div>
+         <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Back to top</a></p></div>
+      </div>
+   </div>
+</footer>
+<script src="../theme/js/jquery.min.js"></script>
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="../theme/js/bootstrap.min.js"></script>
+
+<!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
+<script src="../theme/js/respond.min.js"></script>
+
+    <!-- Disqus -->
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'yucheng'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function () {
+            var s = document.createElement('script');
+            s.async = true;
+            s.type = 'text/javascript';
+            s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+            (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+        }());
+    </script>
+    <!-- End Disqus Code -->
+
 </body>
 </html>
