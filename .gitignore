@@ -1,0 +1,7 @@
+__pycache__/
+_old/
+_*
+cache/
+output/
+pelicanconf_*.py
+pelican-plugins
