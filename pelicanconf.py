@@ -48,7 +48,7 @@ PLUGINS = ['liquid_tags.img', 'liquid_tags.video',
            'liquid_tags.include_code', 'liquid_tags.notebook','render_math']
 
 # Theme:
-THEME = "./Themes/pelican-bootstrap3"
+THEME = "pelican-bootstrap3"
 BOOTSTRAP_THEME='flatly'
 PYGMENTS_STYLE ='monokai'  #This is for inline highlighting syntaxes
 
