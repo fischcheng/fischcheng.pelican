@@ -4,7 +4,9 @@ Date:        2016-07-04 17:07
 Tags: Precipitation, ENSO, SIOD, Southern Africa
 Category: Notes
 
+
 [Andrew Hoell, Chris Funk, Jens Zinke, Laura Harrison: Modulation of the Southern Africa precipitation response to the El Niño Southern Oscillation by the subtropical Indian Ocean Dipole](http://link.springer.com/article/10.1007/s00382-016-3220-6)
+
 
 **What scientific questions are the authors addressing?**  
 How the phase of the SIOD and therefore the SST anomaly expression of the Indian Ocean, modulates the Southern Africa precipitation response to ENSO?

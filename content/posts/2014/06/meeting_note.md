@@ -9,7 +9,8 @@ Category: Notes
 
 **What scientific questions are the authors addressing?**
 
-To test the observed (by MOCHA array) 8 year trend (2004-2012, -0.53Sv/yr) of AMOC is significant, in comparison to the 14 CMIP5 models preindustrial control runs.
+To test the observed (by MOCHA array) 8 year trend (2004-2012, -0.53Sv/yr) of AMOC is significant, in comparison to the 14 CMIP5 models preindustrial control runs.  
+
 
 **What methods do the authors use to address the questions?**
 
@@ -17,7 +18,7 @@ The existed oberserved timeseries is not long enough, and there is yet no consen
 
 1. Pick out the models with overturning streamfunction diagnostics on the CMIP5 archive (14), indices defined as the maximum streamfunction at the model latitude closest to 26.5N, annual mean taken from Apr-Mar adopted by the RAPID array (why?)
 2. Simplely compare distribution of 8yr trends of different models to the observed trend. However, every models seem underestimate the interannual variability of AMOC (Fig2, b,c)
-3. Combining the temporal correlation characteristics of AMOC from CMIP5 models with an observational estimate of interannual variability to account for this bias. (using autoregressive moving average model to fit CMIP5 AMOC timeseries, and add the upper limit of observed variability.)
+3. Combining the temporal correlation characteristics of AMOC from CMIP5 models with an observational estimate of interannual variability to account for this bias. (using autoregressive moving average model to fit CMIP5 AMOC timeseries, and add the upper limit of observed variability.)  
 
 
 **What are the authors' main conclusions?**
