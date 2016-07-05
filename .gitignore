@@ -3,5 +3,6 @@ _old/
 _*
 cache/
 output/
-pelicanconf_*.py
 pelican-plugins
+fabfile.py
+
