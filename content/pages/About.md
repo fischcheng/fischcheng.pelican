@@ -1,6 +1,6 @@
 Title: About
 
-Hi everyone, welcome to my personal site. Abandoning Wordpress, I decided to adopt Pelican just to keep making effort in my python endeavor. My name is Yu Cheng, I'm a second year PhD student/Research assistant in the department of physical oceanography, Rosenstiel School of Marine & Atmospheric Science, University of Miami, working under the supervision of Dr. Lisa Beal and Dr. Ben Kirtman.
+Hi everyone, welcome to my personal site. Abandoning Wordpress, I decided to adopt Pelican just to keep making effort in my python endeavor. My name is Yu Cheng, I'm a PhD student/Research assistant in the department of physical oceanography, Rosenstiel School of Marine & Atmospheric Science, University of Miami, working under the supervision of Dr. Lisa Beal and Dr. Ben Kirtman.
 
 I am from Taiwan, received my B.S. degreee in Atmospheric Science from National Taiwan University in 2010, fulfilled my military duty from 2010-2011. Before coming to Miami, I spent an year working at Labrotory for Climate Change Research, Academica Sinica.
 
