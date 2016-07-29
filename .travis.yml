@@ -9,7 +9,7 @@ branches:
   only:
   - source
 install:
-- pip install ghp-import pelican jupyter ipython nbconvert markdown
+- pip install -r requirements.txt
 - git clone https://github.com/getpelican/pelican-plugins
 script:
 - make travis
