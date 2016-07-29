@@ -82,8 +82,11 @@ For the first time in my graduate school, I gave my 20 min seminar talks. You ar
 * Lagrangian Ocean Modeling workshop at Imperial College, Sep. 2015: [Assessing the skill of 30-day climate model output for lagrangian analyses of agulhas leakage](https://1drv.ms/b/s!AuB_mliF0-ygyqV_f0pVNY7uC7otwg)
 
 ####Peer-reviwed articles:####
+#####**2016**#####
+* Yu Cheng, Dian Putrasahan, Lisa Beal, and Ben Kirtman: Quantifying Agulhas Leakage in a high-resolution climate model. J. Climate (in press), [doi: 10.1175/JCLI-D-15-0568.1.](http://journals.ametsoc.org/doi/abs/10.1175/JCLI-D-15-0568.1)
+
 #####**2015**#####
-* Putrasahan, D. A., L. M. Beal, B. P. Kirtman, and Y. Cheng (2015), A new Eulerian method to estimate “spicy” Agulhas leakage in climate models. Geophys. Res. Lett., 42, 4532–4539. [doi: 10.1002/2015GL064482.](http://onlinelibrary.wiley.com/doi/10.1002/2015GL064482/full)
+* Putrasahan, D. A., L. M. Beal, B. P. Kirtman, and Yu Cheng: A new Eulerian method to estimate “spicy” Agulhas leakage in climate models. Geophys. Res. Lett., 42, 4532–4539. [doi: 10.1002/2015GL064482.](http://onlinelibrary.wiley.com/doi/10.1002/2015GL064482/full)
 
 
 

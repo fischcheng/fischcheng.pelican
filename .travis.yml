@@ -1,13 +1,16 @@
 language: python
 python:
 - '3.5'
+
+services:
+  - docker
+
 branches:
   only:
   - source
 install:
-- pip install -r requirements.txt
+- pip install ghp-import pelican jupyter ipython nbconvert markdown
 - git clone https://github.com/getpelican/pelican-plugins
-- pip install pelican-youtube
 script:
 - make travis
 env:
