@@ -53,5 +53,5 @@ Locking variables is a feature of CCSM that prevents users from changing variabl
 
 --
 
-More advanced use cases can be found in Chapter 9 of the [CCSM4 user guide] (http://www.cesm.ucar.edu/models/ccsm4.0/ccsm_doc/ug.pdf)
+More advanced use cases can be found in Chapter 9 of the [CCSM4 user guide](http://www.cesm.ucar.edu/models/ccsm4.0/ccsm_doc/ug.pdf)
                              
